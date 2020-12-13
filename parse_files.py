@@ -8,12 +8,14 @@ import json
 # Change the DIR
 os.chdir("C:\\HAYS\\")
 
+# in order to work properly, it's necessary the pip install -U PYMYSQL dependency package to SQLALCHEMY.
+
 try:
     # Create a database connection
     db_connection = mysql.connector.connect(
         host="localhost",
         user="root",
-        password="M1ner@!Bemisa",
+        password="",
         database="db_urano"
         )
     # Create a MySQL cursor to process
@@ -43,7 +45,7 @@ try:
     json_object = json.loads(arq)
 
     ################################################################
-    # Basic data wragling
+    # Basic data wrangling
     ################################################################
 
     # Remove special characters
