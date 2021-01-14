@@ -2,7 +2,7 @@
 Data Engineering Automated. 
 Import, clean, and transform CSV, LOG, JSON files and load it into MySQL using Python language. Perform data analysis using SQL and print it with Python.
 
-Solution steps:
+How to execute the solution:
 
 Installing Python and the required packages to run the program.
 
