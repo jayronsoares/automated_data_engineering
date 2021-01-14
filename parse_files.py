@@ -2,31 +2,34 @@ import os
 import pandas as pd
 from pandas.io import sql
 from sqlalchemy import create_engine
+from sqlalchemy.pool import Pool
 import mysql.connector
 import json
 
-# Change the DIR
-os.chdir("C:\\HAYS\\")
-
-# in order to work properly, it's necessary the pip install -U PYMYSQL dependency package to SQLALCHEMY.
+# Changing the DIR
+os.chdir("C:\\PYTHON_STUFF\\hays")
 
 try:
-    # Create a database connection
+    # Create a database connection -- DATABASE TARGET
     db_connection = mysql.connector.connect(
         host="localhost",
         user="root",
-        password="",
-        database="db_urano"
+        password="PASSWORD",
+        database="db_urano" # schema used to be load
         )
-    # Create a MySQL cursor to process
+    # Create a MySQL cursor to process the steps
     db_cursor = db_connection.cursor()
     
     ################################################################
-    # Loading section
+    # LOADING THE DATA
     ################################################################
+
+
+    print('###################################### \n')
+    print("STEP 1: EXTRACT DATA")
     
     # Load the log file equipment_failure_sensors.log
-    df_failure_sensors = pd.read_csv("C:\\HAYS\\equipment_failure_sensors.log",
+    df_failure_sensors = pd.read_csv("equipment_failure_sensors.log",
                                      sep="\t",
                                      engine='python',
                                      names = ["log_date","ERROR", "sensor_id","to_drop_column","temperature","vibration"],
@@ -35,19 +38,22 @@ try:
                                      index_col=False)
 
     # Load the log file equipment_sensors.csv
-    df_equipment_sensors = pd.read_csv("C:\\HAYS\\equipment_sensors.csv",
+    df_equipment_sensors = pd.read_csv("equipment_sensors.csv",
                                        sep=";",
                                        usecols=['equipment_id', 'sensor_id'],
                                        encoding='utf8')
 
     # Load the log file equipment.json
-    arq=open('C:\\HAYS\\equipment.json').read()
+    arq=open('equipment.json').read()
     json_object = json.loads(arq)
 
     ################################################################
-    # Basic data wrangling
+    # CLEANING THE DATA
     ################################################################
 
+    print('###################################### \n')
+    print("STEP 2: DATA WRANGLING ")
+    
     # Remove special characters
     df_failure_sensors = df_failure_sensors.replace(to_replace=r'[^0-9+-]',value='',regex=True)
     
@@ -60,8 +66,11 @@ try:
     
 
     ################################################################
-    # Create tables section
+    # CREATING TABLES
     ################################################################
+
+    print('###################################### \n')
+    print("STEP 3: CREATING TABLES ")
     
     # Create tables
     query=["CREATE TABLE equipment_failure_sensors (log_date VARCHAR(200), sensor_id VARCHAR(100), temperature VARCHAR(100), vibration VARCHAR(100))",
@@ -73,8 +82,11 @@ try:
 
 
     ################################################################
-    # Inserting section
+    # INSERTING RECORDS
     ################################################################
+
+    print('###################################### \n')
+    print("STEP 4: INSERTING RECORDS INTO THE TABLES")
     
     try:
         # Insert records from LOG file.
@@ -93,13 +105,15 @@ try:
 
 
         # Insert records from CSV file.
-        engine = create_engine('mysql://root:M1ner@!Bemisa@localhost/db_urano')
+        engine = create_engine('mysql+pymysql://root:PASSWORD@localhost:3306/db_urano', echo_pool=True, pool_size=10, max_overflow=20 )
         with engine.connect() as conn, conn.begin():
             df_equipment_sensors.to_sql('equipment_sensors', conn, index=False, if_exists='append')
-            
 
+
+        print("ALL RECORDS SUCCESSFULLY LOADED!\n")
+        
         ################################################################
-        # Retriving records
+        # RETRIEVING THE RECORDS
         ################################################################
         
         # Total equipment failures that happened?
