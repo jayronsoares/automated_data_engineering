@@ -1,5 +1,5 @@
 ## Automated Data Engineering
-How Import, clean, and transform CSV, LOG, JSON files and insert it into MySQL database using Python language. Finally, perform data analysis using SQL and print the results using Python package.
+How Import, clean, and transform CSV, LOG, JSON files and insert it into MySQL database using Python language. Finally, perform data analysis using SQL and print the results using Python.
 
 ## How to run the solution:
 
@@ -14,4 +14,4 @@ How Import, clean, and transform CSV, LOG, JSON files and insert it into MySQL d
 ## 4. Place the files the same directory.
 ## 5. In the notebook, change the file path in pd.read_excel() | pd.read_csv() your preferred data name.
 ## 6. You should be able to work through the entire notebook
-If you run into issues or have questions, log an issue and I'll get back to you ASAP.
+# If you run into issues or have questions, log an issue and I'll get back to you ASAP.
