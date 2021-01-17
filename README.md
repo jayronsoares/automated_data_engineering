@@ -3,7 +3,7 @@ How Import, clean, and transform CSV, LOG, JSON files and insert it into MySQL d
 
 ## How to run the solution:
 
-## 1. Download and install and the required packages to run the program.
+## 1. Download Python to run the program.
 - https://www.python.org/downloads/
 ## 2. Installing the required packages
 - pip install -U pandas
