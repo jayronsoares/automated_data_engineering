@@ -5,11 +5,11 @@ This notebook will help you with how to import, clean, and transform CSV, LOG, J
 
 ## 1. Download Python to run the program.
 - https://www.python.org/downloads/
-## 2. Installing the required packages
+## 2. Install the required packages
 - pip install -U pandas
 - pip install -U sqlalchemy
 - pip install -U mysql-connector
-## 3. Installing the MySQL database software.
+## 3. Install the MySQL database software.
 - https://www.mysql.com/downloads/
 ## 4. Place the files the same directory.
 ## 5. In the notebook, change the file path in pd.read_excel() | pd.read_csv() your preferred data name.
