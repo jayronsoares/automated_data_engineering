@@ -60,7 +60,7 @@ try:
     # Remove unwanted columns
     df_failure_sensors.drop(columns=['ERROR', 'to_drop_column'], inplace=True, axis=1)
 
-    # A quick calibration to the LOG_DATE column
+    # A simple adjust at LOG_DATE column
     df_failure_sensors['log_date'] = df_failure_sensors['log_date'].str.replace(r'\D+','')
     df_failure_sensors['log_date'] = pd.to_datetime(df_failure_sensors['log_date'], errors='coerce')
     
