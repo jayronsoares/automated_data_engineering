@@ -7,18 +7,10 @@ import mysql.connector
 import json
 
 # Changing the DIR
-os.chdir("C:\\PYTHON_STUFF\\hays")
+os.chdir("C:\\PYTHON_STUFF")
 
 try:
-    # Create a database connection -- DATABASE TARGET
-    db_connection = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="PASSWORD",
-        database="db_urano" # schema used to be load
-        )
-    # Create a MySQL cursor to process the steps
-    db_cursor = db_connection.cursor()
+   
     
     ################################################################
     # LOADING THE DATA
@@ -68,6 +60,17 @@ try:
     ################################################################
     # CREATING TABLES
     ################################################################
+    
+     # Create a database connection -- DATABASE TARGET
+    db_connection = mysql.connector.connect(
+        host="localhost",
+        user="root",
+        password="PASSWORD",
+        database="db_urano" # schema used to be load
+        )
+    # Create a MySQL cursor to process the steps
+    db_cursor = db_connection.cursor()
+    
 
     print('###################################### \n')
     print("STEP 3: CREATING TABLES ")
