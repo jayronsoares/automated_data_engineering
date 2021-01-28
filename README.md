@@ -1,5 +1,5 @@
 ## Simple Automated Data Engineering Processing
-This notebook will help you with how to import, clean, and transform CSV, LOG, JSON files, then insert it into MySQL database using Python language, perform basics analysis using SQL and display the results using Python.
+This notebook will help you with how to import, clean, and transform CSV, LOG, JSON files, then insert it into MySQL database; perform basics analysis using SQL and display the results using Python language.
 
 ## Setup your environment:
 
