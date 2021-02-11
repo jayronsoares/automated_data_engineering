@@ -56,7 +56,7 @@ try:
     df_failure_sensors['log_date'] = df_failure_sensors['log_date'].str.replace(r'\D+','')
     df_failure_sensors['log_date'] = pd.to_datetime(df_failure_sensors['log_date'], errors='coerce')
 
-    def chek_for_missing_zero_values(df):
+    def check_missing_zero_values(df):
         zero_val = (df == 0.00).astype(int).sum(axis=0)
         mis_val = df.isnull().sum()
         mis_val_percent = 100 * df.isnull().sum() / len(df)
@@ -72,17 +72,15 @@ try:
         return mz_table
 
     print("## CHECK FOR MISSING OR ZERO VALUES\n")
-    chek_for_missing_zero_values(df_failure_sensors)
+    check_missing_zero_values(df_failure_sensors)
     print()
     
-    chek_for_missing_zero_values(df_equipment_sensors)
+    check_missing_zero_values(df_equipment_sensors)
     print()
-    
 
     # Remove empy blank space
     df_failure_sensors.columns = [x.strip().replace(' ', "") for x in df_failure_sensors.columns]
     df_equipment_sensors.columns = [x.strip().replace(' ', "") for x in df_equipment_sensors.columns]
-    
 
     ################################################################
     # CREATING TABLES
