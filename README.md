@@ -14,6 +14,7 @@ Import, clean, and transform CSV, LOG, JSON files, then insert it into MySQL dat
 - pip install -U mysql-connector
 - pip install PyMySQL
 - pip install json
+- pip install -U cryptography
 
 ## 3. Download & Install the MySQL Community database software.
 - https://dev.mysql.com/downloads/mysql/
