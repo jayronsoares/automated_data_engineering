@@ -1,5 +1,5 @@
-## Simple Automated Data Engineering Processing
-Import, clean, and transform CSV, LOG, JSON files, then insert it into MySQL database; perform basics analysis using SQL and display the results using Python language.
+## Data Engineering Process
+Import, clean, and transform CSV, LOG, JSON files, then load them into MySQL database; perform basics analysis using SQL and display the results.
 
 ## Setup your environment:
 
