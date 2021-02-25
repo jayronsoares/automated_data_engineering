@@ -1,5 +1,5 @@
 ## Data Engineering Process
-Import, clean, and transform CSV, LOG, JSON files, then load them into MySQL database; perform basics analysis using SQL and display the results.
+Import, clean, and transform CSV, LOG, JSON files, then load it into MySQL database; perform basics analysis using SQL and display the results.
 
 ## Setup your environment:
 
