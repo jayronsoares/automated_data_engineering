@@ -166,7 +166,7 @@ try:
         for row in records:
             print("TOTAL OF FAILURES = ", row[0])
 
-        # Which equipment had most failures?
+        # Which equipment has the most failures?
         code = """ SELECT max(CODE) as fault_equipment
                      FROM(
                              SELECT eq.CODE, COUNT(*) AS TotalEquipmentFailures
@@ -184,7 +184,7 @@ try:
         db_cursor.execute(code)
         records_failures = db_cursor.fetchall()
         
-        print("\nWhich equipment had most failures?\n")
+        print("\nWhich equipment has the most failures?\n")
         for row in records_failures:
             print("EQUIPMENT CODE = ", row[0])
 
