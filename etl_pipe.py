@@ -145,7 +145,7 @@ try:
         # RETRIEVING THE RECORDS
         ################################################################
         
-        # Total equipment failures that happened?
+        # Total equipment failures ?
         total = """SELECT SUM(TotalEquipmentFailures) AS TOTAL_OF_FAILURES
                         FROM(
                             SELECT COUNT(*) AS TotalEquipmentFailures
@@ -162,12 +162,12 @@ try:
         records = db_cursor.fetchall()
         
         print("All the answers are related to January 2020\n")
-        print("\nTotal equipment failures that happened?\n")
+        print("\nTotal equipment failures ?\n")
         for row in records:
             print("TOTAL OF FAILURES = ", row[0])
 
-        # Which equipment code had most failures?
-        code = """ SELECT CODE
+        # Which equipment had most failures?
+        code = """ SELECT max(CODE) as fault_equipment
                      FROM(
                              SELECT eq.CODE, COUNT(*) AS TotalEquipmentFailures
                              FROM equipment_failure_sensors as ef
@@ -184,7 +184,7 @@ try:
         db_cursor.execute(code)
         records_failures = db_cursor.fetchall()
         
-        print("\nWhich equipment code had most failures?\n")
+        print("\nWhich equipment had most failures?\n")
         for row in records_failures:
             print("EQUIPMENT CODE = ", row[0])
 
