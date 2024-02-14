@@ -1,10 +1,10 @@
-#### import os
-### import pandas as pd
-### from pandas.io import sql
-### from sqlalchemy import create_engine
-### from sqlalchemy.pool import Pool
-### import mysql.connector
-### import json
+``` import os
+import pandas as pd
+from pandas.io import sql
+from sqlalchemy import create_engine
+from sqlalchemy.pool import Pool
+import mysql.connector
+import json
 
 ## Changing the DIR
 os.chdir("C:\\PYTHON")
